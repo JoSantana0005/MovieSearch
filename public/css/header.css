@@ -44,6 +44,7 @@ header .Search input{
     padding: 6px 10px;
     color: var(--TerciryColor);
     border-radius: 5px;
+    background-color: #eee;
     outline: none;
     font-size: 1em;
     transition: .1s linear;
@@ -52,8 +53,11 @@ header .Search input::placeholder{
     color: var(--TerciryColor);
 }
 header .Search input:focus{
-    background-color: #aaa;
+    background-color: #fff;
     border: 2px solid var(--TerciryColor);
+}
+header .Search input::placeholder:focus{
+    color: #fff
 }
 header .Search button{
     padding: 6px 10px;
