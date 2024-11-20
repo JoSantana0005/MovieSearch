@@ -35,7 +35,6 @@ main .Cartelera h1{
     text-shadow: 2px 2px 2px #000;
 }
 main .Movie--Container{
-    border: 1px solid #fff;
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -57,13 +56,12 @@ main .Movie--Container .Movie:hover{
     border-radius: 10px;
 }
 main .Movie--Container .Movie img{
-    border: 1px solid #fff;
     width: 190px;
     height: 190px;
     border-radius: 10px;
     transition: .1s linear;
 }
-main .Movie--Container .Movie img:hover{
+main .Movie--Container .Movie:hover img{
     padding: 5px;
     border-radius: 20px;
 }
