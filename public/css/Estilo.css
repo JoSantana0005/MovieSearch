@@ -1,6 +1,6 @@
 :root{
     --PrimaryColor: #010c5c; 
-    --SecondaryColor: #000947;
+    --SecondaryColor: #000c42 ;
     --TerciryColor: #000009;
     --BorderColor: #7c7c7c;
 }
@@ -10,4 +10,27 @@
     box-sizing: border-box;
     font-size: 14px;
     font-family: sans-serif;
+}
+main{
+    border: 1px solid #000;
+    width: 100%;
+    height: 87.5vh;
+    background-color: var(--SecondaryColor);
+    color: #eee;
+    padding: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 15px;
+}
+main .Cartelera{
+    padding: 2px;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid #000;
+}
+main .Cartelera h1{
+    font-size: 2em;
+    padding-left: 5px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 2px #000;
 }
