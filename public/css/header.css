@@ -1,0 +1,72 @@
+:root{
+    --PrimaryColor: #010c5c; 
+    --SecondaryColor: #000947;
+    --TerciryColor: #000009;
+    --BorderColor: #7c7c7c;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+header{
+    position: relative;
+    z-index: 1;
+    border: 1px solid #000;
+    height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--PrimaryColor);
+}
+header div{
+    padding: 5px;
+}
+header .Logo{
+    text-align: center;
+    margin-left: 8px;
+}
+header .Logo img{
+    width: 63px;
+    border-radius: 30px;
+}
+header .Search{
+    width: 65%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+header .Search input{
+    width: 70%;
+    padding: 6px 10px;
+    color: var(--TerciryColor);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    transition: .1s linear;
+}
+header .Search input::placeholder{
+    color: var(--TerciryColor);
+}
+header .Search input:focus{
+    background-color: #aaa;
+    border: 2px solid var(--TerciryColor);
+}
+header .Search button{
+    padding: 6px 10px;
+    width: 90px;
+    background-color: var(--TerciryColor);
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .1s linear;
+}
+header .Search button:hover{
+    background-color: var(--BorderColor);
+    border: 2px solid var(--TerciryColor);
+}
