@@ -1,0 +1,11 @@
+:root{
+    --PrimaryColor: #010c5c; 
+    --SecondaryColor: #000947;
+    --TerciryColor: #000009;
+    --BorderColor: #7c7c7c;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
