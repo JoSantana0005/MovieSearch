@@ -2,6 +2,7 @@ let pagina = 1
 const right_arrow = document.getElementById("Right--Arrow");
 const left_arrow = document.getElementById("Left--Arrow");
 const Ventana = document.getElementById("Ventana--info");
+const Cerrar = document.getElementById("Cerrar");
 right_arrow.addEventListener("click",()=>{
     try{
         pagina++
@@ -43,6 +44,40 @@ const obtener_peliculas = async() =>{
                 element.addEventListener("click",()=>{
                     console.log(datos.results[index]);
                     Ventana.showModal();
+                    if(Ventana){
+                        Ventana.innerHTML=`
+                        <span id="Cerrar">X</span>
+                        <div class="Content--dialog">
+                <div class="Imagen--pelicula">
+                    <div>
+                        <img src="https://image.tmdb.org/t/p/w500/${datos.results[index].backdrop_path}" alt="imagen">
+                    </div>
+                    <h2>${datos.results[index].title}</h2>
+                </div>
+                <div class="Pelicula--info">
+                    <div>
+                        <h3>Descripcion</h3>
+                        <p id="Descripcion">${datos.results[index].overview}</p>
+                    </div>
+                    <div>
+                        <h3>Genero</h3>
+                        <p id="Genero">Genero</p>
+                    </div>
+                    <div>
+                        <h3>Director</h3>
+                        <p id="Director">Director</p>
+                    </div>
+                    <div>
+                        <h3>Actores</h3>
+                        <p id="Actores">Actores</p>
+                    </div>
+                    <div>
+                        <h3>Fecha de Estreno</h3>
+                        <p id="Fecha">Fecha</p>
+                    </div>
+                </div>
+            </div>`
+                    }
                 })
             })
 
