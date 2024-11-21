@@ -11,6 +11,14 @@
     font-size: 14px;
     font-family: sans-serif;
 }
+body::-webkit-scrollbar{
+    width: 15px;
+    background-color: var(--PrimaryColor);
+}
+body::-webkit-scrollbar-thumb{
+    background-color: var(--TerciryColor);
+    border-radius: 10px;
+}
 main{
     border: 1px solid #000;
     width: 100%;

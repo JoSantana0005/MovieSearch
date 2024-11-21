@@ -2,7 +2,6 @@ let pagina = 1
 const right_arrow = document.getElementById("Right--Arrow");
 const left_arrow = document.getElementById("Left--Arrow");
 const Ventana = document.getElementById("Ventana--info");
-const Cerrar = document.getElementById("Cerrar");
 right_arrow.addEventListener("click",()=>{
     try{
         pagina++
@@ -48,38 +47,43 @@ const obtener_peliculas = async() =>{
                         Ventana.innerHTML=`
                         <span id="Cerrar">X</span>
                         <div class="Content--dialog">
-                <div class="Imagen--pelicula">
-                    <div>
-                        <img src="https://image.tmdb.org/t/p/w500/${datos.results[index].backdrop_path}" alt="imagen">
+                        <div class="Imagen--pelicula">
+                        <div>
+                            <img src="https://image.tmdb.org/t/p/w500/${datos.results[index].backdrop_path}" alt="imagen">
+                        </div>
+                        <h2>${datos.results[index].title}</h2>
+                        </div>
+                        <div class="Pelicula--info">
+                        <div>
+                            <h3>Descripcion</h3>
+                            <p id="Descripcion">${datos.results[index].overview}</p>
+                        </div>
+                        <div>
+                            <h3>Genero</h3>
+                            <p id="Genero">${datos.results[index].genre_ids}</p>
+                        </div>
+                        <div>
+                            <h3>Popularidad</h3>
+                            <p id="Popularidad">${datos.results[index].popularity}</p>
+                        </div>
+                        <div>
+                            <h3>Titulo Original</h3>
+                            <p id="Titulo-original">${datos.results[index].original_title}</p>
+                        </div>
+                        <div>
+                            <h3>Fecha de Estreno</h3>
+                            <p id="Fecha">${datos.results[index].release_date}</p>
+                        </div>
                     </div>
-                    <h2>${datos.results[index].title}</h2>
-                </div>
-                <div class="Pelicula--info">
-                    <div>
-                        <h3>Descripcion</h3>
-                        <p id="Descripcion">${datos.results[index].overview}</p>
-                    </div>
-                    <div>
-                        <h3>Genero</h3>
-                        <p id="Genero">Genero</p>
-                    </div>
-                    <div>
-                        <h3>Director</h3>
-                        <p id="Director">Director</p>
-                    </div>
-                    <div>
-                        <h3>Actores</h3>
-                        <p id="Actores">Actores</p>
-                    </div>
-                    <div>
-                        <h3>Fecha de Estreno</h3>
-                        <p id="Fecha">Fecha</p>
-                    </div>
-                </div>
-            </div>`
-                    }
-                })
+                </div>` 
+            }
+            const Cerrar = document.getElementsByTagName("span")[0];
+            Cerrar.addEventListener('click',()=>{
+                Ventana.close();
             })
+        })
+        })
+
 
         }else if(respuesta.status == 404){
             console.log("No se encontraron resultados")
