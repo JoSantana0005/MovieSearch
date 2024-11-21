@@ -1,3 +1,4 @@
+
 const obtener_peliculas = async() =>{
     try{
         const respuesta = await fetch("https://api.themoviedb.org/3/movie/popular?api_key=a123512ad7d1eb8f1ff144501c87ec1a")
