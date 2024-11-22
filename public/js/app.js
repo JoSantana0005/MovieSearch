@@ -38,6 +38,68 @@ const obtener_peliculas = async() =>{
             </div>`
             });
             document.getElementById("Movie--Container").innerHTML = peliculas
+            
+            const Search = document.getElementById("Search--pelicula")
+            const Buscar = document.getElementById("Search");
+
+            Buscar.addEventListener("click",()=>{
+                const busqueda = Search.value.toLowerCase();
+                const Buscar_pelicula = datos.results.filter(pelicula => pelicula.title.toLowerCase().includes(busqueda))
+                let Peliculas_buscar = '';
+                Buscar_pelicula.forEach(pelicula =>{
+                    Peliculas_buscar += `<div class="Movie">
+                    <img src="https://image.tmdb.org/t/p/w500/${pelicula.backdrop_path}" alt="Pelicula" id="Imagen--pelicula">
+                    <h3 id="Title--pelicula">${pelicula.title}</h3>` 
+                });
+                document.getElementById("Movie--Container").innerHTML = Peliculas_buscar;
+
+                const Movie_buscar = document.querySelectorAll(".Movie")
+                Movie_buscar.forEach((element,index) =>{
+                    element.addEventListener("click",()=>{
+                        console.log(datos.results[index]);
+                        Ventana.showModal();
+                        if(Ventana){
+                            Ventana.innerHTML=`
+                            <span id="Cerrar">X</span>
+                            <div class="Content--dialog">
+                            <div class="Imagen--pelicula">
+                            <div>
+                                <img src="https://image.tmdb.org/t/p/w500/${Buscar_pelicula[index].backdrop_path}" alt="imagen">
+                            </div>
+                            <h2>${Buscar_pelicula[index].title}</h2>
+                            </div>
+                            <div class="Pelicula--info">
+                            <div>
+                                <h3>Descripcion</h3>
+                                <p id="Descripcion">${Buscar_pelicula[index].overview}</p>
+                            </div>
+                            <div>
+                                <h3>Genero</h3>
+                                <p id="Genero">${Buscar_pelicula[index].genre_ids}</p>
+                            </div>
+                            <div>
+                                <h3>Popularidad</h3>
+                                <p id="Popularidad">${Buscar_pelicula[index].popularity}</p>
+                            </div>
+                            <div>
+                                <h3>Titulo Original</h3>
+                                <p id="Titulo-original">${Buscar_pelicula[index].original_title}</p>
+                            </div>
+                            <div>
+                                <h3>Fecha de Estreno</h3>
+                                <p id="Fecha">${Buscar_pelicula[index].release_date}</p>
+                            </div>
+                        </div>
+                    </div>` 
+                }
+                const Cerrar_buscar = document.getElementsByTagName("span")[0];
+                Cerrar_buscar.addEventListener('click',()=>{
+                    Ventana.close();
+                })
+            })
+        })
+    })
+            
             const Movie = document.querySelectorAll(".Movie")
             Movie.forEach((element,index) =>{
                 element.addEventListener("click",()=>{
@@ -81,6 +143,9 @@ const obtener_peliculas = async() =>{
             Cerrar.addEventListener('click',()=>{
                 Ventana.close();
             })
+
+            
+            
         })
         })
 
